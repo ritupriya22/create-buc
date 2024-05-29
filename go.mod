@@ -1,4 +1,4 @@
-module create-buc-swag.go
+module github.com/ritupriya22/create-buc
 
 go 1.22.3
 
