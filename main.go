@@ -17,6 +17,7 @@ import (
     "database/sql"
     _ "github.com/swaggo/gin-swagger"
     swaggerFiles "github.com/swaggo/files"
+    _ "github.com/ritupriya22/create-buc/docs"
     // _ "/home/ritu/create-buc/docs"
 )
 var logger, _ = zap.NewProduction()
