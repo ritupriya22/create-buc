@@ -52,19 +52,13 @@ const docTemplate = `{
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
+                            "$ref": "#/definitions/main.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
+                            "$ref": "#/definitions/main.ErrorResponse"
                         }
                     }
                 }
@@ -82,6 +76,17 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "user_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "main.ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "Status Code": {
+                    "type": "integer"
+                },
+                "error_description": {
                     "type": "string"
                 }
             }
