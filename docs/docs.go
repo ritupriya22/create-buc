@@ -41,12 +41,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "Successfully created bucket",
+                        "description": "OK",
                         "schema": {
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
+                            "$ref": "#/definitions/main.Resp"
                         }
                     },
                     "400": {
@@ -88,6 +85,22 @@ const docTemplate = `{
                 },
                 "error_description": {
                     "type": "string"
+                }
+            }
+        },
+        "main.Resp": {
+            "type": "object",
+            "properties": {
+                "Response": {
+                    "type": "object",
+                    "properties": {
+                        "Creation Time": {
+                            "type": "string"
+                        },
+                        "Request Status": {
+                            "type": "string"
+                        }
+                    }
                 }
             }
         }
