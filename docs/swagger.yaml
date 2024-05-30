@@ -1,4 +1,50 @@
+definitions:
+  main.CreateBucketParams:
+    properties:
+      bucket_name:
+        type: string
+      key:
+        type: string
+      user_id:
+        type: string
+    type: object
 info:
   contact: {}
-paths: {}
+paths:
+  /createBucket:
+    post:
+      consumes:
+      - application/json
+      description: Create a new bucket with the given parameters
+      parameters:
+      - description: CreateBucketParams
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/main.CreateBucketParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully created bucket
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Create a new bucket
+      tags:
+      - buckets
 swagger: "2.0"
