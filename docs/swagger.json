@@ -30,30 +30,21 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Successfully created bucket",
+                        "description": "OK",
                         "schema": {
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
+                            "$ref": "#/definitions/main.Resp"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
+                            "$ref": "#/definitions/main.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
+                            "$ref": "#/definitions/main.ErrorResponse"
                         }
                     }
                 }
@@ -72,6 +63,33 @@
                 },
                 "user_id": {
                     "type": "string"
+                }
+            }
+        },
+        "main.ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "Status Code": {
+                    "type": "integer"
+                },
+                "error_description": {
+                    "type": "string"
+                }
+            }
+        },
+        "main.Resp": {
+            "type": "object",
+            "properties": {
+                "Response": {
+                    "type": "object",
+                    "properties": {
+                        "Creation Time": {
+                            "type": "string"
+                        },
+                        "Request Status": {
+                            "type": "string"
+                        }
+                    }
                 }
             }
         }
