@@ -8,6 +8,23 @@ definitions:
       user_id:
         type: string
     type: object
+  main.ErrorResponse:
+    properties:
+      Status Code:
+        type: integer
+      error_description:
+        type: string
+    type: object
+  main.Resp:
+    properties:
+      Response:
+        properties:
+          Creation Time:
+            type: string
+          Request Status:
+            type: string
+        type: object
+    type: object
 info:
   contact: {}
 paths:
@@ -27,23 +44,17 @@ paths:
       - application/json
       responses:
         "200":
-          description: Successfully created bucket
+          description: OK
           schema:
-            additionalProperties:
-              type: string
-            type: object
+            $ref: '#/definitions/main.Resp'
         "400":
           description: Bad Request
           schema:
-            additionalProperties:
-              type: string
-            type: object
+            $ref: '#/definitions/main.ErrorResponse'
         "500":
           description: Internal Server Error
           schema:
-            additionalProperties:
-              type: string
-            type: object
+            $ref: '#/definitions/main.ErrorResponse'
       summary: Create a new bucket
       tags:
       - buckets
