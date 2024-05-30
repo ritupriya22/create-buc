@@ -3,5 +3,77 @@
     "info": {
         "contact": {}
     },
-    "paths": {}
+    "paths": {
+        "/createBucket": {
+            "post": {
+                "description": "Create a new bucket with the given parameters",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "buckets"
+                ],
+                "summary": "Create a new bucket",
+                "parameters": [
+                    {
+                        "description": "CreateBucketParams",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/main.CreateBucketParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully created bucket",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "main.CreateBucketParams": {
+            "type": "object",
+            "properties": {
+                "bucket_name": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "string"
+                }
+            }
+        }
+    }
 }
